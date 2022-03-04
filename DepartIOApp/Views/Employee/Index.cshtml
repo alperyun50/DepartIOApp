@@ -1,0 +1,37 @@
+﻿@using DepartIOApp.Models
+@model List<Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Departman</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var d in Model)
+    {
+        <tr>
+            <th>@d.empId</th>
+            <th>@d.name</th>
+            <th>@d.surname</th>
+            <th>@d.City</th>
+            <th>@d.depart.departmentName</th>
+            <th><a href="/Depart/DeleteDepartment/@d.empId" class="btn btn-danger">Sil</a></th>
+            <th><a href="/Depart/GetDepartment/@d.empId" class="btn btn-success">Güncelle</a></th>
+        </tr>
+    }
+</table>
+
+<a href="/Depart/NewDepartment/" class="btn btn-primary">Yeni Personel</a>

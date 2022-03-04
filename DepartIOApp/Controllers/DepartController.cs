@@ -16,5 +16,47 @@ namespace DepartIOApp.Controllers
             var dept = c.Departments.ToList();
             return View(dept);
         }
+
+        [HttpGet]
+        public IActionResult NewDepartment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult NewDepartment(Department d)
+        {
+            c.Departments.Add(d);
+            c.SaveChanges();
+            
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteDepartment(int id)
+        {
+            var dept = c.Departments.Find(id);
+            c.Departments.Remove(dept);
+            c.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult GetDepartment(int id)
+        {
+            var dept = c.Departments.Find(id);
+            
+            return View("GetDepartment", dept);
+        }
+
+        public IActionResult UpdateDepartment(Department d)
+        {
+            var dept = c.Departments.Find(d.id);
+
+            dept.id = d.id;
+            dept.departmentName = d.departmentName;
+            c.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -14,5 +14,8 @@ namespace DepartIOApp.Models
         public string surname { get; set; }
         public string City { get; set; }
 
+        //FKey
+        public int departid { get; set; }
+        public Department depart { get; set; }
     }
 }

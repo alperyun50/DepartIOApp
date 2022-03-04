@@ -1,0 +1,21 @@
+﻿@using DepartIOApp.Models;
+@model Department
+
+@{
+    ViewData["Title"] = "GetDepartment";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("UpdateDepartment", "Depart", FormMethod.Post))
+{
+    <br />
+    <b>Departman ID</b>
+    @Html.TextBoxFor(x => x.id, new { @class = "form-control" })
+    <br />
+    <b>Departman Adı</b>
+    @Html.TextBoxFor(x => x.departmentName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" style="background-color:#ff6a00">Departman Güncelle</button>
+}
+

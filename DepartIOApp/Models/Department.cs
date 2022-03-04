@@ -11,5 +11,8 @@ namespace DepartIOApp.Models
         [Key]
         public int id { get; set; }
         public string departmentName { get; set; }
+
+        // one department can include many employees
+        public List<Employee> employees { get; set; }
     }
 }

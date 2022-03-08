@@ -16,6 +16,7 @@ namespace DepartIOApp.Models
 
         //FKey
         public int departid { get; set; }
+        // you havo to include this to employeecontroller get method
         public Department depart { get; set; }
     }
 }

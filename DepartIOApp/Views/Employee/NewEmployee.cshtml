@@ -1,0 +1,26 @@
+﻿@using DepartIOApp.Models;
+@model Employee
+
+@{
+    ViewData["Title"] = "NewEmployee";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+<form class="form-group" method="post">
+    <b>Employee Name</b>
+    @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+    <br />
+    <b>Employee Surname</b>
+    @Html.TextBoxFor(x => x.surname, new { @class = "form-control" })
+    <br />
+    <b>City</b>
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <br />
+    <b>Department</b>
+    @Html.DropDownListFor(x => x.depart.id, (List<SelectListItem>)ViewBag.vals, new { @class = "form-control"})
+    <br />
+
+    <button class="btn btn-info">Personel Ekle</button>
+</form>
+

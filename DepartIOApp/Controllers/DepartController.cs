@@ -58,5 +58,12 @@ namespace DepartIOApp.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult DepartmentDetail(int id)
+        {
+            var values = c.Employees.Where(x => x.departid == id).ToList();
+
+            return View(values);
+        }
     }
 }

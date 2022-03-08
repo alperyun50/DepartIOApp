@@ -1,0 +1,29 @@
+﻿@using DepartIOApp.Models;
+@model List<Employee>
+
+@{
+    ViewData["Title"] = "DepartmentDetail";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<h1>DepartmentDetail</h1>
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+    </tr>
+
+    @foreach (var d in Model)
+    {
+        <tr>
+            <th>@d.empId</th>
+            <th>@d.name</th>
+            <th>@d.surname</th>
+            <th>@d.City</th>          
+        </tr>
+    }
+</table>

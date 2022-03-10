@@ -1,4 +1,5 @@
 ﻿using DepartIOApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ namespace DepartIOApp.Controllers
     {
         DbDContext c = new DbDContext();
 
+        [Authorize]
         public IActionResult Index()
         {
             var emp = c.Employees.Include(x=>x.depart).ToList();

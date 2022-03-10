@@ -62,7 +62,10 @@ namespace DepartIOApp.Controllers
         public IActionResult DepartmentDetail(int id)
         {
             var values = c.Employees.Where(x => x.departid == id).ToList();
+            var departname = c.Departments.Where(x => x.id == id).Select(x => x.departmentName).FirstOrDefault();
 
+            // send departname to ui
+            ViewBag.departname = departname;
             return View(values);
         }
     }
